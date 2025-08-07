@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
+import Spotlight from "@/components/spotlight";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -53,10 +54,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${nacelle.variable} bg-gray-950 font-inter text-base text-gray-200 antialiased`}
       >
-        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <Spotlight> 
+        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip overflow-hidden rounded-2xl  p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100">
           <Header />
           {children}
         </div>
+        </Spotlight>
       </body>
     </html>
   );

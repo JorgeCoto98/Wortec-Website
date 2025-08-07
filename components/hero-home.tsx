@@ -13,15 +13,22 @@ export default function HeroHome() {
               className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-5 font-nacelle text-4xl font-semibold text-transparent md:text-5xl"
               data-aos="fade-up"
             >
-              Wortec ofrece herramientas impulsadas por IA para su empresa
+              Desarrollamos software a medida 
             </h1>
-            <div className="mx-auto max-w-3xl">
+            <div className="mx-auto max-w-4xl">
               <p
                 className="mb-8 text-xl text-indigo-200/65"
                 data-aos="fade-up"
                 data-aos-delay={200}
               >
-               Nuestros productos y soluciones son desarrolladas por nosotros para ofrecerles soluciones para optimizar su producción
+               Impulsamos la transformación digital de tu empresa con soluciones personalizadas y escalables
+              </p>
+               <p
+                className="mb-8 text-xl text-indigo-200/65"
+                data-aos="fade-up"
+                data-aos-delay={200}
+              >
+              Integramos tecnologías de IA para automatizar procesos, mejorar la eficiencia y llevar tu negocio al siguiente nivel
               </p>
               <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
                 <div data-aos="fade-up" data-aos-delay={400}>
@@ -35,14 +42,6 @@ export default function HeroHome() {
                         -&gt;
                       </span>
                     </span>
-                  </a>
-                </div>
-                <div data-aos="fade-up" data-aos-delay={600}>
-                  <a
-                    className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                    href="#0"
-                  >
-                    Solicita una demostración
                   </a>
                 </div>
               </div>

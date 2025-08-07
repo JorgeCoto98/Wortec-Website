@@ -2,6 +2,7 @@ import Image from "next/image";
 import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
 import BlurredShape from "@/public/images/blurred-shape.svg";
 import FeaturesImage from "@/public/images/features.png";
+import Spotlight from "@/components/spotlight"; 
 
 export default function Features() {
   return (
@@ -57,10 +58,11 @@ export default function Features() {
             />
           </div>
           {/* Items */}
-          <div className="mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3">
+          {/* <Spotlight> */}
+            <div className="m-3 mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3 group/card relative h-full overflow-hidden rounded-2xl  p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100">
             <article>
               <svg
-                className="mb-3 fill-indigo-500"
+                className="m-3 fill-indigo-500"
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
@@ -187,7 +189,8 @@ export default function Features() {
                 alineando todos los equipos en un solo timeline.
               </p>
             </article>
-          </div>
+            </div>
+          {/* </Spotlight> */}
         </div>
       </div>
     </section>
