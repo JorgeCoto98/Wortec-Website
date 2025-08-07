@@ -24,23 +24,23 @@ export default function Header() {
             <Link href="/" className="hover:text-indigo-400 transition duration-150 ease-in-out">
               Inicio
             </Link>
-            <Link href="/" className="hover:text-indigo-400 transition duration-150 ease-in-out">
-              Funciones
+            <Link href="/servicios" className="hover:text-indigo-400 transition duration-150 ease-in-out">
+              Servicios
             </Link>
-            <Link href="/" className="hover:text-indigo-400 transition duration-150 ease-in-out">
+            <Link href="/precios" className="hover:text-indigo-400 transition duration-150 ease-in-out">
               Precios
             </Link>
-            <Link href="/" className="hover:text-indigo-400 transition duration-150 ease-in-out">
+            <Link href="/blog" className="hover:text-indigo-400 transition duration-150 ease-in-out">
               Blog
             </Link>
-            <Link href="/" className="hover:text-indigo-400 transition duration-150 ease-in-out">
+            <Link href="/contacto" className="hover:text-indigo-400 transition duration-150 ease-in-out">
               Contacto
             </Link>
           </nav>
 
           {/* Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
+            {/* <Link
               href="/signin"
               className="btn-sm bg-gray-800/60 text-gray-300 hover:text-white transition-all duration-200"
             >
@@ -51,7 +51,7 @@ export default function Header() {
               className="btn-sm bg-gradient-to-t from-indigo-600 to-indigo-500 text-white hover:to-indigo-400 shadow-md transition-all duration-200"
             >
               Comenzar gratis
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Toggle */}
