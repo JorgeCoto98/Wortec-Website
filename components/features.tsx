@@ -1,14 +1,14 @@
-import Image from "next/image";
-import BlurredShapeGray from "@/public/images/blurred-shape-gray.svg";
-import BlurredShape from "@/public/images/blurred-shape.svg";
-import FeaturesImage from "@/public/images/features.png";
-import Spotlight from "@/components/spotlight"; 
+import Image from 'next/image';
+import BlurredShapeGray from '@/public/images/blurred-shape-gray.svg';
+import BlurredShape from '@/public/images/blurred-shape.svg';
+import FeaturesImage from '@/public/images/features.png';
+import Spotlight from '@/components/spotlight';
 
 export default function Features() {
   return (
     <section className="relative">
       <div
-        className="pointer-events-none absolute left-1/2 top-0 -z-10 -mt-20 -translate-x-1/2"
+        className="pointer-events-none absolute top-0 left-1/2 -z-10 -mt-20 -translate-x-1/2"
         aria-hidden="true"
       >
         <Image
@@ -40,12 +40,12 @@ export default function Features() {
                 Opciones avanzadas
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+            <h2 className="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold text-transparent md:text-4xl">
               Tecnología e innovación al máximo nivel
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Nuestra IA entiende tu contenido, documentación y contexto en segundos. 
-              Con solo una línea de feedback, desbloquea avances que van más allá de la intuición.
+              Nuestra IA entiende tu contenido, documentación y contexto en segundos. Con solo una
+              línea de feedback, desbloquea avances que van más allá de la intuición.
             </p>
           </div>
           <div className="flex justify-center pb-4 md:pb-12" data-aos="fade-up">
@@ -59,7 +59,7 @@ export default function Features() {
           </div>
           {/* Items */}
           {/* <Spotlight> */}
-            <div className="m-3 mx-auto grid max-w-sm gap-12 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3 group/card relative h-full overflow-hidden rounded-2xl  p-px before:pointer-events-none before:absolute before:-left-40 before:-top-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 after:pointer-events-none after:absolute after:-left-48 after:-top-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 group-hover:before:opacity-100">
+          <div className="group/card relative m-3 mx-auto grid h-full max-w-sm gap-12 overflow-hidden rounded-2xl p-px before:pointer-events-none before:absolute before:-top-40 before:-left-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:-top-48 after:-left-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 sm:max-w-none sm:grid-cols-2 md:gap-x-14 md:gap-y-16 lg:grid-cols-3">
             <article>
               <svg
                 className="m-3 fill-indigo-500"
@@ -73,12 +73,12 @@ export default function Features() {
                   d="m16.295 5.393 7.528 2.034-4.436 16.412L5.87 20.185l.522-1.93 11.585 3.132 3.392-12.55-5.597-1.514.522-1.93Z"
                 />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="font-nacelle mb-1 text-[1rem] font-semibold text-gray-200">
                 Hitos del Proyecto
               </h3>
               <p className="text-indigo-200/65">
-                Controla cada fase de tu proyecto de manera estratégica, 
-                asegurando un progreso eficiente y enfocado.
+                Controla cada fase de tu proyecto de manera estratégica, asegurando un progreso
+                eficiente y enfocado.
               </p>
             </article>
             <article>
@@ -91,12 +91,12 @@ export default function Features() {
                 <path fillOpacity=".48" d="M7 8V0H5v8h2Zm12 16v-4h-2v4h2Z" />
                 <path d="M19 6H0v2h17v8H7v-6H5v8h19v-2h-5V6Z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="font-nacelle mb-1 text-[1rem] font-semibold text-gray-200">
                 Visión del Equipo
               </h3>
               <p className="text-indigo-200/65">
-                Potencia la colaboración con vistas personalizadas 
-                que reflejan el flujo único de tu equipo.
+                Potencia la colaboración con vistas personalizadas que reflejan el flujo único de tu
+                equipo.
               </p>
             </article>
             <article>
@@ -112,12 +112,12 @@ export default function Features() {
                   d="M13.01 12.508a2.5 2.5 0 0 0-3.502.482L1.797 23.16.203 21.952l7.71-10.17a4.5 4.5 0 1 1 7.172 5.437l-4.84 6.386-1.594-1.209 4.841-6.385a2.5 2.5 0 0 0-.482-3.503Z"
                 />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="font-nacelle mb-1 text-[1rem] font-semibold text-gray-200">
                 Búsqueda Avanzada
               </h3>
               <p className="text-indigo-200/65">
-                Accede a información relevante al instante, 
-                con una búsqueda diseñada para necesidades complejas.
+                Accede a información relevante al instante, con una búsqueda diseñada para
+                necesidades complejas.
               </p>
             </article>
             <article>
@@ -138,12 +138,12 @@ export default function Features() {
                 />
                 <path d="m16.321 2-.5-.866 1.733-1 .5.866A22 22 0 0 1 21 12c0 3.852-1.017 7.636-2.948 10.97l-.502.865-1.73-1.003.501-.865A19.878 19.878 0 0 0 19 12a20 20 0 0 0-2.679-10Z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="font-nacelle mb-1 text-[1rem] font-semibold text-gray-200">
                 Iniciativas Estratégicas
               </h3>
               <p className="text-indigo-200/65">
-                Define y ejecuta estrategias clave para 
-                alcanzar tus objetivos con claridad y enfoque.
+                Define y ejecuta estrategias clave para alcanzar tus objetivos con claridad y
+                enfoque.
               </p>
             </article>
             <article>
@@ -159,13 +159,12 @@ export default function Features() {
                 />
                 <path d="m7.454 2.891.891-.454L7.437.655l-.891.454a12 12 0 0 0 0 21.382l.89.454.91-1.781-.892-.455a10 10 0 0 1 0-17.818ZM17.456 1.11l-.891-.454-.909 1.782.891.454a10 10 0 0 1 0 17.819l-.89.454.908 1.781.89-.454a12 12 0 0 0 0-21.382Z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="font-nacelle mb-1 text-[1rem] font-semibold text-gray-200">
                 Flujos de Trabajo Flexibles
               </h3>
               <p className="text-indigo-200/65">
-               Adapta los procesos de trabajo a tus necesidades específicas, 
-               garantizando eficiencia y flexibilidad.
-
+                Adapta los procesos de trabajo a tus necesidades específicas, garantizando
+                eficiencia y flexibilidad.
               </p>
             </article>
             <article>
@@ -175,21 +174,18 @@ export default function Features() {
                 width={24}
                 height={24}
               >
-                <path
-                  fillOpacity=".48"
-                  d="M19 8h5v2h-5V8Zm-4 5h9v2h-9v-2Zm9 5H11v2h13v-2Z"
-                />
+                <path fillOpacity=".48" d="M19 8h5v2h-5V8Zm-4 5h9v2h-9v-2Zm9 5H11v2h13v-2Z" />
                 <path d="M19.406 3.844 6.083 20.497.586 15 2 13.586l3.917 3.917L17.844 2.595l1.562 1.25Z" />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
+              <h3 className="font-nacelle mb-1 text-[1rem] font-semibold text-gray-200">
                 Línea de Tiempo Unificada
               </h3>
               <p className="text-indigo-200/65">
-                Visualiza el progreso de tu proyecto de un vistazo, 
-                alineando todos los equipos en un solo timeline.
+                Visualiza el progreso de tu proyecto de un vistazo, alineando todos los equipos en
+                un solo timeline.
               </p>
             </article>
-            </div>
+          </div>
           {/* </Spotlight> */}
         </div>
       </div>
