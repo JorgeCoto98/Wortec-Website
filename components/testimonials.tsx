@@ -1,111 +1,110 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import useMasonry from "@/utils/useMasonry";
-import Image, { StaticImageData } from "next/image";
-import TestimonialImg01 from "@/public/images/testimonial-01.jpg";
-import TestimonialImg02 from "@/public/images/testimonial-02.jpg";
-import TestimonialImg03 from "@/public/images/testimonial-03.jpg";
-import TestimonialImg04 from "@/public/images/testimonial-04.jpg";
-import TestimonialImg05 from "@/public/images/testimonial-05.jpg";
-import TestimonialImg06 from "@/public/images/testimonial-06.jpg";
-import TestimonialImg07 from "@/public/images/testimonial-07.jpg";
-import TestimonialImg08 from "@/public/images/testimonial-08.jpg";
-import TestimonialImg09 from "@/public/images/testimonial-09.jpg";
-import ClientImg01 from "@/public/images/client-logo-01.svg";
-import ClientImg02 from "@/public/images/client-logo-02.svg";
-import ClientImg03 from "@/public/images/client-logo-03.svg";
-import ClientImg04 from "@/public/images/client-logo-04.svg";
-import ClientImg05 from "@/public/images/client-logo-05.svg";
-import ClientImg06 from "@/public/images/client-logo-06.svg";
-import ClientImg07 from "@/public/images/client-logo-07.svg";
-import ClientImg08 from "@/public/images/client-logo-08.svg";
-import ClientImg09 from "@/public/images/client-logo-09.svg";
+import { useState } from 'react';
+import useMasonry from '@/utils/useMasonry';
+import Image, { StaticImageData } from 'next/image';
+import TestimonialImg01 from '@/public/images/testimonial-01.jpg';
+import TestimonialImg02 from '@/public/images/testimonial-02.jpg';
+import TestimonialImg03 from '@/public/images/testimonial-03.jpg';
+import TestimonialImg04 from '@/public/images/testimonial-04.jpg';
+import TestimonialImg05 from '@/public/images/testimonial-05.jpg';
+import TestimonialImg06 from '@/public/images/testimonial-06.jpg';
+import TestimonialImg07 from '@/public/images/testimonial-07.jpg';
+import TestimonialImg08 from '@/public/images/testimonial-08.jpg';
+import TestimonialImg09 from '@/public/images/testimonial-09.jpg';
+import ClientImg01 from '@/public/images/client-logo-01.svg';
+import ClientImg02 from '@/public/images/client-logo-02.svg';
+import ClientImg03 from '@/public/images/client-logo-03.svg';
+import ClientImg04 from '@/public/images/client-logo-04.svg';
+import ClientImg05 from '@/public/images/client-logo-05.svg';
+import ClientImg06 from '@/public/images/client-logo-06.svg';
+import ClientImg07 from '@/public/images/client-logo-07.svg';
+import ClientImg08 from '@/public/images/client-logo-08.svg';
+import ClientImg09 from '@/public/images/client-logo-09.svg';
 
 const testimonials = [
   {
     img: TestimonialImg01,
     clientImg: ClientImg01,
-    name: "MaKayla P.",
-    company: "Disney",
+    name: 'MaKayla P.',
+    company: 'Disney',
     content:
-      "Como creadora de contenido, siempre busqué una herramienta que me ayudara a mantener el paso. Esta herramienta impulsada por IA ha revolucionado mi proceso. Ahora genero contenido de calidad en un tiempo que antes parecía imposible.",
+      'Como creadora de contenido, siempre busqué una herramienta que me ayudara a mantener el paso. Esta herramienta impulsada por IA ha revolucionado mi proceso. Ahora genero contenido de calidad en un tiempo que antes parecía imposible.',
     categories: [1, 3, 5],
   },
   {
     img: TestimonialImg02,
     clientImg: ClientImg02,
-    name: "Andrew K.",
-    company: "Samsung",
+    name: 'Andrew K.',
+    company: 'Samsung',
     content:
-      "He probado varias herramientas para generar contenido, pero ninguna como esta. Su capacidad para entender el tono de mi marca y producir contenido que conecta con mi audiencia es incomparable.",
+      'He probado varias herramientas para generar contenido, pero ninguna como esta. Su capacidad para entender el tono de mi marca y producir contenido que conecta con mi audiencia es incomparable.',
     categories: [1, 2, 4],
   },
   {
     img: TestimonialImg03,
     clientImg: ClientImg03,
-    name: "Lucy D.",
-    company: "Rio",
+    name: 'Lucy D.',
+    company: 'Rio',
     content:
-      "La creación de contenido solía ser un obstáculo, pero con esta herramienta de IA todo ha cambiado. Es rápida, intuitiva y siempre produce resultados excepcionales. ¡Es como contar con un colaborador más que nunca se detiene!",
+      'La creación de contenido solía ser un obstáculo, pero con esta herramienta de IA todo ha cambiado. Es rápida, intuitiva y siempre produce resultados excepcionales. ¡Es como contar con un colaborador más que nunca se detiene!',
     categories: [1, 2, 5],
   },
   {
     img: TestimonialImg04,
     clientImg: ClientImg04,
-    name: "Pavel M.",
-    company: "Canon",
+    name: 'Pavel M.',
+    company: 'Canon',
     content:
-      "El contenido generado por esta IA es increíblemente preciso y de alta calidad. Nos ha permitido elevar nuestro marketing y publicar más frecuentemente sin comprometer la excelencia. La recomiendo sin dudarlo.",
+      'El contenido generado por esta IA es increíblemente preciso y de alta calidad. Nos ha permitido elevar nuestro marketing y publicar más frecuentemente sin comprometer la excelencia. La recomiendo sin dudarlo.',
     categories: [1, 4],
   },
   {
     img: TestimonialImg05,
     clientImg: ClientImg05,
-    name: "Miriam E.",
-    company: "Cadbury",
+    name: 'Miriam E.',
+    company: 'Cadbury',
     content:
-      "Esta herramienta basada en IA ha sido un cambio radical para mi agencia de marketing. Ahora podemos entregar contenido excepcional a varios clientes de manera rápida y eficiente. Es una herramienta indispensable para nuestro equipo.",
+      'Esta herramienta basada en IA ha sido un cambio radical para mi agencia de marketing. Ahora podemos entregar contenido excepcional a varios clientes de manera rápida y eficiente. Es una herramienta indispensable para nuestro equipo.',
     categories: [1, 3, 5],
   },
   {
     img: TestimonialImg06,
     clientImg: ClientImg06,
-    name: "Eloise V.",
-    company: "Maffell",
+    name: 'Eloise V.',
+    company: 'Maffell',
     content:
-      "No puedo creer lo bien que funciona esta herramienta de IA. Es tan flexible que puede generar contenido para blogs, redes sociales e incluso descripciones de productos con total facilidad. ¡Es increíble!",
+      'No puedo creer lo bien que funciona esta herramienta de IA. Es tan flexible que puede generar contenido para blogs, redes sociales e incluso descripciones de productos con total facilidad. ¡Es increíble!',
     categories: [1, 3],
   },
   {
     img: TestimonialImg07,
     clientImg: ClientImg07,
-    name: "Pierre-Gilles L.",
-    company: "Binance",
+    name: 'Pierre-Gilles L.',
+    company: 'Binance',
     content:
-      "Lo que más me sorprendió fue lo fácil que fue crear contenido con esta herramienta. En solo unas horas, ya tenía una plataforma profesional funcionando y mi cliente quedó completamente impresionado.",
+      'Lo que más me sorprendió fue lo fácil que fue crear contenido con esta herramienta. En solo unas horas, ya tenía una plataforma profesional funcionando y mi cliente quedó completamente impresionado.',
     categories: [1, 2, 5],
   },
   {
     img: TestimonialImg08,
     clientImg: ClientImg08,
-    name: "Danielle K.",
-    company: "Forbes Inc.",
+    name: 'Danielle K.',
+    company: 'Forbes Inc.',
     content:
-      "Siempre he evitado las herramientas de IA complejas para sitios web, pero Wortec Darktec Landing es perfecto para mí. Su diseño limpio y su funcionamiento simple hacen que estar organizada sea fácil y natural.",
+      'Siempre he evitado las herramientas de IA complejas para sitios web, pero Wortec Darktec Landing es perfecto para mí. Su diseño limpio y su funcionamiento simple hacen que estar organizada sea fácil y natural.',
     categories: [1, 4],
   },
   {
     img: TestimonialImg09,
     clientImg: ClientImg09,
-    name: "Mary P.",
-    company: "Ray Ban",
+    name: 'Mary P.',
+    company: 'Ray Ban',
     content:
-      "Nunca me ha gustado el código, por lo que encontrar una herramienta de IA que no requiera conocimientos técnicos fue un sueño hecho realidad. Esta herramienta superó todas mis expectativas y ahora puedo compartir mis nuevas creaciones con confianza.",
+      'Nunca me ha gustado el código, por lo que encontrar una herramienta de IA que no requiera conocimientos técnicos fue un sueño hecho realidad. Esta herramienta superó todas mis expectativas y ahora puedo compartir mis nuevas creaciones con confianza.',
     categories: [1, 2],
   },
 ];
-
 
 export default function Testimonials() {
   const masonryContainer = useMasonry();
@@ -116,14 +115,15 @@ export default function Testimonials() {
       <div className="border-t py-12 [border-image:linear-gradient(to_right,transparent,--theme(--color-slate-400/.25),transparent)1] md:py-20">
         {/* Section header */}
         <div className="mx-auto max-w-3xl pb-12 text-center">
-          <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+          <h2 className="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold text-transparent md:text-4xl">
             No lo decimos solo nosotros
           </h2>
           <p className="text-lg text-indigo-200/65">
-            Creamos soluciones tecnológicas que empoderan a líderes y creadores para construir espacios de trabajo más saludables, felices y conectados, sin importar dónde se encuentren.
+            Creamos soluciones tecnológicas que empoderan a líderes y creadores para construir
+            espacios de trabajo más saludables, felices y conectados, sin importar dónde se
+            encuentren.
           </p>
         </div>
-
 
         <div>
           {/* Buttons */}
@@ -131,12 +131,12 @@ export default function Testimonials() {
             <div className="relative inline-flex flex-wrap justify-center rounded-[1.25rem] bg-gray-800/40 p-1">
               {/* Button #1 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 1 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
+                className={`flex h-8 flex-1 items-center gap-2.5 rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-3 focus-visible:ring-indigo-200 focus-visible:outline-hidden ${category === 1 ? 'relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]' : 'opacity-65 transition-opacity hover:opacity-90'}`}
                 aria-pressed={category === 1}
                 onClick={() => setCategory(1)}
               >
                 <svg
-                  className={`fill-current ${category === 1 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${category === 1 ? 'text-indigo-500' : 'text-gray-600'}`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height={16}
@@ -147,12 +147,12 @@ export default function Testimonials() {
               </button>
               {/* Button #2 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 2 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
+                className={`flex h-8 flex-1 items-center gap-2.5 rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-3 focus-visible:ring-indigo-200 focus-visible:outline-hidden ${category === 2 ? 'relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]' : 'opacity-65 transition-opacity hover:opacity-90'}`}
                 aria-pressed={category === 2}
                 onClick={() => setCategory(2)}
               >
                 <svg
-                  className={`fill-current ${category === 2 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${category === 2 ? 'text-indigo-500' : 'text-gray-600'}`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height={16}
@@ -163,12 +163,12 @@ export default function Testimonials() {
               </button>
               {/* Button #3 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 3 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
+                className={`flex h-8 flex-1 items-center gap-2.5 rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-3 focus-visible:ring-indigo-200 focus-visible:outline-hidden ${category === 3 ? 'relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]' : 'opacity-65 transition-opacity hover:opacity-90'}`}
                 aria-pressed={category === 3}
                 onClick={() => setCategory(3)}
               >
                 <svg
-                  className={`fill-current ${category === 3 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${category === 3 ? 'text-indigo-500' : 'text-gray-600'}`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height={16}
@@ -179,12 +179,12 @@ export default function Testimonials() {
               </button>
               {/* Button #4 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 4 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
+                className={`flex h-8 flex-1 items-center gap-2.5 rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-3 focus-visible:ring-indigo-200 focus-visible:outline-hidden ${category === 4 ? 'relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]' : 'opacity-65 transition-opacity hover:opacity-90'}`}
                 aria-pressed={category === 4}
                 onClick={() => setCategory(4)}
               >
                 <svg
-                  className={`fill-current ${category === 4 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${category === 4 ? 'text-indigo-500' : 'text-gray-600'}`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height={16}
@@ -195,12 +195,12 @@ export default function Testimonials() {
               </button>
               {/* Button #5 */}
               <button
-                className={`flex h-8 flex-1 items-center gap-2.5 whitespace-nowrap rounded-full px-3 text-sm font-medium transition-colors focus-visible:outline-hidden focus-visible:ring-3 focus-visible:ring-indigo-200 ${category === 5 ? "relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]" : "opacity-65 transition-opacity hover:opacity-90"}`}
+                className={`flex h-8 flex-1 items-center gap-2.5 rounded-full px-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-3 focus-visible:ring-indigo-200 focus-visible:outline-hidden ${category === 5 ? 'relative bg-linear-to-b from-gray-900 via-gray-800/60 to-gray-900 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_bottom,--theme(--color-indigo-500/0),--theme(--color-indigo-500/.5))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]' : 'opacity-65 transition-opacity hover:opacity-90'}`}
                 aria-pressed={category === 5}
                 onClick={() => setCategory(5)}
               >
                 <svg
-                  className={`fill-current ${category === 5 ? "text-indigo-500" : "text-gray-600"}`}
+                  className={`fill-current ${category === 5 ? 'text-indigo-500' : 'text-gray-600'}`}
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height={16}
@@ -249,15 +249,13 @@ export function Testimonial({
 }) {
   return (
     <article
-      className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 p-5 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? "opacity-30" : ""}`}
+      className={`relative rounded-2xl bg-linear-to-br from-gray-900/50 via-gray-800/25 to-gray-900/50 p-5 backdrop-blur-xs transition-opacity before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] ${!testimonial.categories.includes(category) ? 'opacity-30' : ''}`}
     >
       <div className="flex flex-col gap-4">
         <div>
           <Image src={testimonial.clientImg} height={36} alt="Client logo" />
         </div>
-        <p className="text-indigo-200/65 before:content-['“'] after:content-['”']">
-          {children}
-        </p>
+        <p className="text-indigo-200/65 before:content-['“'] after:content-['”']">{children}</p>
         <div className="flex items-center gap-3">
           <Image
             className="inline-flex shrink-0 rounded-full"
@@ -269,10 +267,7 @@ export function Testimonial({
           <div className="text-sm font-medium text-gray-200">
             <span>{testimonial.name}</span>
             <span className="text-gray-700"> - </span>
-            <a
-              className="text-indigo-200/65 transition-colors hover:text-indigo-500"
-              href="#0"
-            >
+            <a className="text-indigo-200/65 transition-colors hover:text-indigo-500" href="#0">
               {testimonial.company}
             </a>
           </div>

@@ -1,5 +1,4 @@
 module.exports = {
-  plugins: {
-    '@tailwindcss/postcss': {},
-  },
+  plugins: [require('prettier-plugin-tailwindcss')],
+  // otras opciones...
 };

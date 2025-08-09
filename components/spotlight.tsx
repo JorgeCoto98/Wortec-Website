@@ -1,17 +1,14 @@
-"use client";
+'use client';
 
-import React, { useRef, useState, useEffect } from "react";
-import useMousePosition from "@/utils/useMousePosition";
+import React, { useRef, useState, useEffect } from 'react';
+import useMousePosition from '@/utils/useMousePosition';
 
 type SpotlightProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-export default function Spotlight({
-  children,
-  className = "",
-}: SpotlightProps) {
+export default function Spotlight({ children, className = '' }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mousePosition = useMousePosition();
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -20,19 +17,15 @@ export default function Spotlight({
 
   useEffect(() => {
     containerRef.current &&
-      setBoxes(
-        Array.from(containerRef.current.children).map(
-          (el) => el as HTMLElement,
-        ),
-      );
+      setBoxes(Array.from(containerRef.current.children).map((el) => el as HTMLElement));
   }, []);
 
   useEffect(() => {
     initContainer();
-    window.addEventListener("resize", initContainer);
+    window.addEventListener('resize', initContainer);
 
     return () => {
-      window.removeEventListener("resize", initContainer);
+      window.removeEventListener('resize', initContainer);
     };
   }, [boxes]);
 
@@ -58,12 +51,10 @@ export default function Spotlight({
         mouse.current.x = x;
         mouse.current.y = y;
         boxes.forEach((box) => {
-          const boxX =
-            -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
-          const boxY =
-            -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
-          box.style.setProperty("--mouse-x", `${boxX}px`);
-          box.style.setProperty("--mouse-y", `${boxY}px`);
+          const boxX = -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
+          const boxY = -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
+          box.style.setProperty('--mouse-x', `${boxX}px`);
+          box.style.setProperty('--mouse-y', `${boxY}px`);
         });
       }
     }
