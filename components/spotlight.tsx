@@ -14,24 +14,36 @@ export default function Spotlight({ children, className = '' }: SpotlightProps) 
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const containerSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
   const [boxes, setBoxes] = useState<Array<HTMLElement>>([]);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    containerRef.current &&
-      setBoxes(Array.from(containerRef.current.children).map((el) => el as HTMLElement));
+    // Detectar si pantalla >= 768px y pointer fine (mouse)
+    const mediaQuery = window.matchMedia('(pointer: fine) and (min-width: 768px)');
+    setEnabled(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => setEnabled(e.matches);
+    mediaQuery.addEventListener('change', handler);
+
+    return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
   useEffect(() => {
+    if (!enabled) return; // no inicializar spotlight si no está habilitado
+
+    if (containerRef.current) {
+      setBoxes(Array.from(containerRef.current.children).map((el) => el as HTMLElement));
+    }
+
     initContainer();
     window.addEventListener('resize', initContainer);
-
-    return () => {
-      window.removeEventListener('resize', initContainer);
-    };
-  }, [boxes]);
+    return () => window.removeEventListener('resize', initContainer);
+  }, [enabled]);
 
   useEffect(() => {
+    if (!enabled) return;
+
     onMouseMove();
-  }, [mousePosition]);
+  }, [mousePosition, enabled]);
 
   const initContainer = () => {
     if (containerRef.current) {
@@ -41,6 +53,7 @@ export default function Spotlight({ children, className = '' }: SpotlightProps) 
   };
 
   const onMouseMove = () => {
+    if (!enabled) return;
     if (containerRef.current) {
       const rect = containerRef.current.getBoundingClientRect();
       const { w, h } = containerSize.current;

@@ -1,7 +1,17 @@
 import Image from 'next/image';
 import BlurredShape from '@/public/images/blurred-shape.svg';
 
+const contactInfo = {
+  whatsappNumber: '50685011430',
+  whatsappMessage: 'Hola, quiero cotizar un servicio con su empresa.',
+  email: 'contacto@tuempresa.com',
+};
+
 export default function Cta() {
+  const whatsappLink = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(
+    contactInfo.whatsappMessage
+  )}`;
+
   return (
     <section className="relative overflow-hidden">
       <div
@@ -17,7 +27,27 @@ export default function Cta() {
         />
       </div>
       <div className="max-w6xl mx-auto px-4 sm:px-6">
-        <div className="bg-linear-to-r from-transparent via-gray-800/50 py-12 md:py-20">
+        <div
+          className="py-12 md:py-20"
+          style={{
+            background: `
+              radial-gradient(circle at center,
+                rgba(0, 0, 0, 0) 60%,
+                rgba(0, 0, 0, 0.7) 85%,
+                rgba(0, 0, 0, 0.95) 100%
+              ),
+              linear-gradient(90deg,
+                rgba(0, 0, 0, 0.8) 0%,
+                #1e3a8a 20%,
+                #3b82f6 40%,
+                #8b5cf6 60%,
+                #7c3aed 80%,
+                rgba(0, 0, 0, 0.8) 100%
+              )
+            `,
+            backgroundBlendMode: 'overlay',
+          }}
+        >
           <div className="mx-auto max-w-3xl text-center">
             <h2
               className="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-8 text-3xl font-semibold text-transparent md:text-4xl"
@@ -25,26 +55,25 @@ export default function Cta() {
             >
               Súmate a esta revolución
             </h2>
-            <div className="mx-auto max-w-xs sm:flex sm:max-w-none sm:justify-center">
-              <div data-aos="fade-up" data-aos-delay={400}>
+
+            <div className="mx-auto max-w-xs gap-4 sm:flex sm:max-w-none sm:justify-center">
+              {/* Botón Enviar Email */}
+              <div data-aos="fade-up" data-aos-delay={400} className="w-full sm:w-auto">
                 <a
-                  className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                  href="#0"
+                  href={`mailto:${contactInfo.email}?subject=Contacto%20desde%20sitio%20web`}
+                  className="mb-4 w-full rounded-md bg-indigo-700 px-6 py-4 text-center font-semibold text-white shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-indigo-800 hover:shadow-2xl active:scale-100 sm:mb-0"
                 >
-                  <span className="relative inline-flex items-center">
-                    Contactar ahora
-                    <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                      -&gt;
-                    </span>
-                  </span>
+                  Enviar Email &rarr;
                 </a>
               </div>
-              <div data-aos="fade-up" data-aos-delay={600}>
+
+              {/* Botón Contáctanos - WhatsApp */}
+              <div data-aos="fade-up" data-aos-delay={600} className="w-full sm:w-auto">
                 <a
-                  className="btn relative w-full bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%] sm:ml-4 sm:w-auto"
-                  href="#0"
+                  href={whatsappLink}
+                  className="mb-4 w-full rounded-md bg-purple-600 px-6 py-4 text-center font-semibold text-white shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-105 hover:bg-purple-700 hover:shadow-2xl active:scale-100 sm:mb-0"
                 >
-                  Cotiza tu IA
+                  Contáctanos &rarr;
                 </a>
               </div>
             </div>

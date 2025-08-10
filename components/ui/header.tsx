@@ -1,12 +1,37 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Logo from './logo';
-import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+
+const menuItems = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Precios', href: '' },
+  { label: 'Blog', href: '' },
+  { label: 'Contacto', href: '' },
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflowX = 'hidden';
+    } else {
+      document.body.style.overflowX = '';
+    }
+    // Cleanup para resetear cuando el componente se desmonte o cambie
+    return () => {
+      document.body.style.overflowX = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // Cierra el menú móvil al hacer click en un link
+  function handleLinkClick() {
+    setMobileMenuOpen(false);
+  }
 
   return (
     <header className="z-30 w-full py-3 md:py-5">
@@ -19,51 +44,20 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-6 text-sm font-medium text-gray-300 md:flex">
-            <Link href="/" className="transition duration-150 ease-in-out hover:text-indigo-400">
-              Inicio
-            </Link>
-            <Link
-              href="/servicios"
-              className="transition duration-150 ease-in-out hover:text-indigo-400"
-            >
-              Servicios
-            </Link>
-            <Link
-              href="/precios"
-              className="transition duration-150 ease-in-out hover:text-indigo-400"
-            >
-              Precios
-            </Link>
-            <Link
-              href="/blog"
-              className="transition duration-150 ease-in-out hover:text-indigo-400"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/contacto"
-              className="transition duration-150 ease-in-out hover:text-indigo-400"
-            >
-              Contacto
-            </Link>
+          <nav className="hidden items-center gap-20 text-lg font-medium text-gray-300 md:flex">
+            {menuItems.map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="transition duration-150 ease-in-out hover:text-indigo-400"
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
 
-          {/* Buttons */}
-          <div className="hidden items-center gap-3 md:flex">
-            {/* <Link
-              href="/signin"
-              className="btn-sm bg-gray-800/60 text-gray-300 hover:text-white transition-all duration-200"
-            >
-              Iniciar sesión
-            </Link>
-            <Link
-              href="/signup"
-              className="btn-sm bg-gradient-to-t from-indigo-600 to-indigo-500 text-white hover:to-indigo-400 shadow-md transition-all duration-200"
-            >
-              Comenzar gratis
-            </Link> */}
-          </div>
+          {/* Buttons Desktop */}
+          <div className="hidden items-center gap-3 md:flex"></div>
 
           {/* Mobile Menu Toggle */}
           <div className="flex items-center md:hidden">
@@ -76,39 +70,59 @@ export default function Header() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="animate-fade-in mt-2 space-y-3 rounded-2xl bg-gray-900/90 px-4 py-4 text-sm text-gray-300 shadow-md transition-all duration-300 md:hidden">
-            <Link href="/" className="block hover:text-indigo-400">
-              Inicio
-            </Link>
-            <Link href="/features" className="block hover:text-indigo-400">
-              Funciones
-            </Link>
-            <Link href="/pricing" className="block hover:text-indigo-400">
-              Precios
-            </Link>
-            <Link href="/blog" className="block hover:text-indigo-400">
-              Blog
-            </Link>
-            <Link href="/contact" className="block hover:text-indigo-400">
-              Contacto
-            </Link>
-            <div className="mt-4 flex flex-col gap-2">
-              <Link href="/signin" className="btn-sm bg-gray-800/60 text-gray-300 hover:text-white">
-                Iniciar sesión
-              </Link>
-              <Link
-                href="/signup"
-                className="btn-sm bg-gradient-to-t from-indigo-600 to-indigo-500 text-white hover:to-indigo-400"
-              >
-                Comenzar gratis
-              </Link>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Menu Overlay */}
+
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-50 overflow-x-hidden overflow-y-auto bg-gray-900/95 backdrop-blur-sm"
+          style={{ width: '100vw', maxWidth: '100vw' }}
+        >
+          <div
+            className="animate-fade-slide-in mx-auto flex min-h-full max-w-screen-md flex-col px-6 py-8 text-lg text-gray-300"
+            style={{ boxSizing: 'border-box' }}
+          >
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Cerrar menú"
+              className="fixed top-4 right-4 z-60 rounded-full bg-gray-800/70 p-2 text-gray-300 shadow-lg transition hover:bg-gray-700 hover:text-white"
+            >
+              <X size={28} />
+            </button>
+
+            <nav className="mt-16 flex flex-col gap-10">
+              {menuItems.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={handleLinkClick}
+                  className="block transition hover:text-indigo-400"
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+
+      {/* Animations CSS */}
+      <style jsx>{`
+        @keyframes fadeSlideIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-10%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-slide-in {
+          animation: fadeSlideIn 300ms ease forwards;
+        }
+      `}</style>
     </header>
   );
 }

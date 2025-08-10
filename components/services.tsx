@@ -1,8 +1,12 @@
 import Image, { StaticImageData } from 'next/image';
-import Spotlight from '@/components/spotlight';
-import ServiceImg01 from '@/public/images/workflow-01.png';
-import ServiceImg02 from '@/public/images/workflow-02.png';
-import ServiceImg03 from '@/public/images/workflow-03.png';
+import ServiceDevelop from '@/public/images/DevelopService01.png';
+import MaintenanceService from '@/public/images/MaintenanceService.png';
+import ServiceSPA from '@/public/images/SPAService.png';
+import ServiceConect from '@/public/images/NetworkService.png';
+import IAService from '@/public/images/IAService.png';
+import SmartService from '@/public/images/SmartService.png';
+import CyberService from '@/public/images/CyberService.png';
+import ConsultService from '@/public/images/ConsultoriaService.png';
 
 interface ServiceCardData {
   title: string;
@@ -13,50 +17,65 @@ interface ServiceCardData {
 
 const services: ServiceCardData[] = [
   {
-    title: 'Herramientas integradas',
+    title: 'Desarrollo de Software a Medida',
     description:
-      'Impulsa el desarrollo de tu producto con una plataforma de contenido que conecta especificaciones e insights estratégicos.',
-    image: ServiceImg01,
-    badge: 'Herramientas integradas',
+      'Creamos aplicaciones y sistemas adaptados a las necesidades específicas de tu negocio, desde sitios web hasta plataformas complejas.',
+    image: ServiceDevelop, // imagen: laptop con código, desarrollador programando
+    badge: 'Software a medida',
   },
   {
-    title: 'Escalamiento instantáneo',
+    title: 'Aplicaciones SPA',
     description:
-      'Transforma tu flujo de desarrollo con IA diseñada para empresas: conecta documentación clave con insights que generan impacto real.',
-    image: ServiceImg02,
-    badge: 'Escalamiento instantáneo',
+      'Desarrollamos aplicaciones de página única rápidas y optimizadas para una experiencia de usuario fluida.',
+    image: ServiceSPA, // imagen: dashboard moderno, UI/UX
+    badge: 'SPA',
   },
   {
-    title: 'Automatización dinámica',
+    title: 'Mantenimiento de TI y Ofimática',
     description:
-      'Automatización que se adapta en tiempo real a tus procesos, datos y equipos. Optimiza flujos sin rigidez y con inteligencia contextual.',
-    image: ServiceImg03,
-    badge: 'Automatización dinámica',
+      'Soporte técnico, optimización de equipos y soluciones de ofimática para garantizar un rendimiento óptimo.',
+    image: MaintenanceService, // imagen: técnico revisando computadora
+    badge: 'Mantenimiento TI',
   },
   {
-    title: 'Automatización dinámica',
+    title: 'Servicios y Redes',
     description:
-      'Automatización que se adapta en tiempo real a tus procesos, datos y equipos. Optimiza flujos sin rigidez y con inteligencia contextual.',
-    image: ServiceImg03,
-    badge: 'Automatización dinámica',
+      'Diseño, instalación y mantenimiento de redes cableadas e inalámbricas para empresas y hogares.',
+    image: ServiceConect, // imagen: racks de servidores o cables de red
+    badge: 'Redes',
   },
   {
-    title: 'Automatización dinámica',
+    title: 'Integración de Inteligencia Artificial',
     description:
-      'Automatización que se adapta en tiempo real a tus procesos, datos y equipos. Optimiza flujos sin rigidez y con inteligencia contextual.',
-    image: ServiceImg03,
-    badge: 'Automatización dinámica',
+      'Implementamos soluciones de IA para automatizar procesos, analizar datos y potenciar la toma de decisiones.',
+    image: IAService, // imagen: cerebro digital o icono IA
+    badge: 'IA',
   },
   {
-    title: 'Automatización dinámica',
+    title: 'Dispositivos Inteligentes',
     description:
-      'Automatización que se adapta en tiempo real a tus procesos, datos y equipos. Optimiza flujos sin rigidez y con inteligencia contextual.',
-    image: ServiceImg03,
-    badge: 'Automatización dinámica',
+      'Instalamos y configuramos sistemas de domótica y dispositivos inteligentes para tu hogar o empresa.',
+    image: SmartService, // imagen: casa inteligente o IoT
+    badge: 'Smart Devices',
+  },
+  {
+    title: 'Ciberseguridad',
+    description:
+      'Protegemos tus sistemas y datos contra amenazas con soluciones avanzadas de seguridad digital.',
+    image: CyberService, // imagen: candado digital o firewall
+    badge: 'Ciberseguridad',
+  },
+  {
+    title: 'Consultoría Tecnológica',
+    description: 'Asesoría experta para definir estrategias tecnológicas que impulsen tu negocio.',
+    image: ConsultService, // imagen: reunión de consultores o plan estratégico
+    badge: 'Consultoría',
   },
 ];
 
 export default function Services() {
+  const phoneNumber = '50685011430';
+
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -69,58 +88,66 @@ export default function Services() {
               </span>
             </div>
             <h2 className="font-nacelle animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 text-3xl font-semibold text-transparent md:text-4xl">
-              Diseñados para escalar tu negocio
+              Soluciones digitales que impulsan tu crecimiento
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Adaptamos nuestras soluciones para integrarse con tus herramientas y potenciar tus
-              objetivos de forma eficiente.
+              Innovamos contigo para crear experiencias únicas, optimizando procesos y ampliando tu
+              alcance.
             </p>
           </div>
 
           {/* Cards dinámicas */}
-          <Spotlight className="group mx-auto grid max-w-sm items-start gap-6 lg:max-w-none lg:grid-cols-3">
-            {services.map((service, index) => (
-              <a
-                key={index}
-                href="#0"
-                className="group/card relative h-full overflow-hidden rounded-2xl bg-gray-800 p-px before:pointer-events-none before:absolute before:-top-40 before:-left-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:-top-48 after:-left-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20"
-              >
-                <div className="relative z-20 h-full overflow-hidden rounded-[inherit] bg-gray-950 after:absolute after:inset-0 after:bg-linear-to-br after:from-gray-900/50 after:via-gray-800/25 after:to-gray-900/50">
-                  {/* Flecha */}
-                  <div
-                    className="absolute top-6 right-6 flex h-8 w-8 items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/65 text-gray-200 opacity-0 transition-opacity group-hover/card:opacity-100"
-                    aria-hidden="true"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width={9} height={8} fill="none">
-                      <path
-                        fill="#F4F4F5"
-                        d="m4.92 8-.787-.763 2.733-2.68H0V3.443h6.866L4.133.767 4.92 0 9 4 4.92 8Z"
-                      />
-                    </svg>
-                  </div>
+          <div className="mx-auto grid max-w-sm grid-cols-1 gap-8 sm:max-w-md sm:grid-cols-2 lg:max-w-none lg:grid-cols-3">
+            {services.map((service, index) => {
+              // Construir mensaje para WhatsApp y URL encode
+              const message = `Hola, quiero cotizar el servicio de "${service.title}" con su empresa.`;
+              const encodedMessage = encodeURIComponent(message);
+              const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+              return (
+                <div
+                  key={index}
+                  className="group relative flex w-full max-w-[350px] flex-col items-center rounded-3xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 p-6 shadow-lg transition-transform hover:-translate-y-2 hover:shadow-2xl"
+                >
                   {/* Imagen */}
-                  <Image
-                    className="inline-flex"
-                    src={service.image}
-                    width={350}
-                    height={288}
-                    alt={service.title}
-                  />
-                  {/* Contenido */}
-                  <div className="p-6">
-                    <div className="mb-3">
-                      <span className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[mask-composite:exclude_!important] before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60">
-                        <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                          {service.badge}
-                        </span>
-                      </span>
-                    </div>
-                    <p className="text-indigo-200/65">{service.description}</p>
+                  <div className="mb-6 h-[200px] w-full overflow-hidden rounded-xl brightness-50 filter transition duration-300 group-hover:brightness-110">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={350}
+                      height={200}
+                      className="h-full w-full object-cover"
+                    />
                   </div>
+
+                  {/* Badge */}
+                  <span className="mb-4 inline-block rounded-full bg-gradient-to-r from-indigo-600 to-indigo-400 px-4 py-1 text-sm font-semibold text-white shadow-md">
+                    {service.badge}
+                  </span>
+
+                  {/* Título */}
+                  <h3 className="mb-3 text-center text-2xl leading-snug font-bold text-white">
+                    {service.title}
+                  </h3>
+
+                  {/* Descripción */}
+                  <p className="text-center text-base leading-relaxed text-indigo-300/90">
+                    {service.description}
+                  </p>
+
+                  {/* Botón Solicitar servicio (como enlace) */}
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-block w-full rounded-full bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 py-2 text-center text-white shadow-md transition-colors hover:from-purple-500 hover:via-purple-600 hover:to-purple-700"
+                  >
+                    Solicitar servicio
+                  </a>
                 </div>
-              </a>
-            ))}
-          </Spotlight>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
