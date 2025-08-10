@@ -48,10 +48,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${nacelle.variable} font-inter bg-gray-950 text-base text-gray-200 antialiased`}
+        className={` ${inter.variable} ${nacelle.variable} font-inter overflow-x-hidden bg-gray-950 text-base text-gray-200 antialiased`}
       >
         <Spotlight>
-          <div className="flex min-h-screen flex-col overflow-hidden rounded-2xl p-px before:pointer-events-none before:absolute before:-top-40 before:-left-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:-top-48 after:-left-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 supports-[overflow:clip]:overflow-clip">
+          <div className="flex min-h-screen max-w-full flex-col overflow-x-hidden rounded-2xl p-0 before:pointer-events-none before:absolute before:-top-40 before:-left-40 before:z-10 before:h-80 before:w-80 before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)] before:rounded-full before:bg-indigo-500/80 before:opacity-0 before:blur-3xl before:transition-opacity before:duration-500 group-hover:before:opacity-100 after:pointer-events-none after:absolute after:-top-48 after:-left-48 after:z-30 after:h-64 after:w-64 after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)] after:rounded-full after:bg-indigo-500 after:opacity-0 after:blur-3xl after:transition-opacity after:duration-500 hover:after:opacity-20 supports-[overflow:clip]:overflow-clip sm:p-px">
             <Header />
             {children}
           </div>

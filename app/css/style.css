@@ -91,3 +91,6 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+html {
+  overflow-x: hidden;
+}
