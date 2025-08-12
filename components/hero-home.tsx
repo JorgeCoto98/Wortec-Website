@@ -1,7 +1,11 @@
 import VideoThumb from '@/public/images/hero-image-01.jpg';
 import ModalVideo from '@/components/modal-video';
+import { contactInfo } from '@/app/constants/contactInfo';
 
 export default function HeroHome() {
+
+  const whatsappMessage='Hola! Me gustaria obtener más información';
+  const whatsappLink=`${contactInfo.whatsappLink}?text=${whatsappMessage}`
   return (
     <section>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -36,7 +40,7 @@ export default function HeroHome() {
                 <div data-aos="fade-up" data-aos-delay={400}>
                   <a
                     className="btn group mb-4 w-full bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
+                    href={whatsappLink}
                   >
                     <span className="relative inline-flex items-center">
                       Contacta con nosotros
