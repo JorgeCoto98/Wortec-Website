@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image';
+import { contactInfo } from "@/app/constants/contactInfo";
 import ServiceDevelop from '@/public/images/DevelopService01.png';
 import MaintenanceService from '@/public/images/MaintenanceService.png';
 import ServiceSPA from '@/public/images/SPAService.png';
@@ -74,7 +75,6 @@ const services: ServiceCardData[] = [
 ];
 
 export default function Services() {
-  const phoneNumber = '50685011430';
 
   return (
     <section>
@@ -102,7 +102,7 @@ export default function Services() {
               // Construir mensaje para WhatsApp y URL encode
               const message = `Hola, quiero cotizar el servicio de "${service.title}" con su empresa.`;
               const encodedMessage = encodeURIComponent(message);
-              const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+              const whatsappLink = `${contactInfo.whatsappLink}?text=${encodedMessage}`;
 
               return (
                 <div
@@ -114,8 +114,6 @@ export default function Services() {
                     <Image
                       src={service.image}
                       alt={service.title}
-                      width={350}
-                      height={200}
                       className="h-full w-full object-cover"
                     />
                   </div>

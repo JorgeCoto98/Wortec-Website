@@ -8,9 +8,9 @@ import { Menu, X } from 'lucide-react';
 const menuItems = [
   { label: 'Inicio', href: '/' },
   { label: 'Servicios', href: '/servicios' },
-  { label: 'Precios', href: '' },
-  { label: 'Blog', href: '' },
-  { label: 'Contacto', href: '' },
+  { label: 'Sobre Nosotros', href: 'nosotros' },
+  { label: 'Blog', href: 'blog' },
+  { label: 'Contacto', href: 'contacto' },
 ];
 
 export default function Header() {

@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import BlurredShape from '@/public/images/blurred-shape.svg';
+import { contactInfo } from '@/app/constants/contactInfo';
 
-const contactInfo = {
-  whatsappNumber: '50685011430',
-  whatsappMessage: 'Hola, quiero cotizar un servicio con su empresa.',
-  email: 'contacto@tuempresa.com',
-};
+
 
 export default function Cta() {
-  const whatsappLink = `https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(
-    contactInfo.whatsappMessage
+
+  const whatsappMessage= 'Hola, quiero cotizar un servicio con su empresa.';
+
+  const whatsappLink = `${contactInfo.whatsappLink}?text=${encodeURIComponent(
+    whatsappMessage
   )}`;
 
   return (
